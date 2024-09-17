@@ -78,7 +78,7 @@ print(f'Accuracy: {accuracy:.2f}')
 **accuracy_score:** Calculates the accuracy of the predictions.
 **print:** Displays the accuracy of the model.
 
-### Classify New Emails
+### Classify New Email Function
 ```python
 def classify_new_email(new_email):
     """Classifies a new email as 'spam' or 'not spam'."""
@@ -88,6 +88,7 @@ def classify_new_email(new_email):
 ```
 
 ```python
+# Test with a new email subject
 new_email = "Important information about your account"
 result = classify_new_email(new_email)
 print(f'The new email is classified as: {result}')
@@ -98,6 +99,7 @@ print(f'The new email is classified as: {result}')
 
 ### Classify Multiple Emails
 ```python
+# Test a bunch of subjects
 for subject in test_data:
     test_subject = classify_new_email(subject)
     print(f'The new email is classified as: {test_subject}')
