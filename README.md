@@ -106,4 +106,16 @@ for subject in test_data:
 ```
 **for loop:** Iterates through the test_data and classifies each email using the classify_new_email function.
 **print:** Displays the classification result for each email.
-This should give you a clear overview of what each part of the code does. If you have any more questions or need further explanations, just let me know!
+
+### Email Subjects Dataset Example
+| Email                                | Label    |
+| ------------------------------------ | -------- |
+| "Win money now!"                     | Spam     |
+| "Important information about your account" | Not Spam |
+| "Cheap loans available"              | Spam     |
+| "Meeting on Friday"                  | Not Spam |
+| "Get rich quick"                     | Spam     |
+| "Your invoice is ready"              | Not Spam |
+| "Earn money while you sleep"         | Spam     |
+| "Team lunch tomorrow"                | Not Spam |
+
