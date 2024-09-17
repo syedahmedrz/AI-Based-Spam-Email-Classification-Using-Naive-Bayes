@@ -1,0 +1,22 @@
+{
+  "email": [
+    "Win money now!",
+    "Important information about your account",
+    "Cheap loans available",
+    "Meeting on Friday",
+    "Get rich quick",
+    "Your invoice is ready",
+    "Earn money while you sleep",
+    "Team lunch tomorrow"
+  ],
+  "label": [
+    "spam",
+    "not spam",
+    "spam",
+    "not spam",
+    "spam",
+    "not spam",
+    "spam",
+    "not spam"
+  ]
+}
