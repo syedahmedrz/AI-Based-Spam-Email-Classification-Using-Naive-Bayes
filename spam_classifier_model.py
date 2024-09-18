@@ -31,7 +31,7 @@ data_dir = './data/'
 
 # Load data
 # data = read_file(f'{data_dir}data.json')
-data = read_file(f'{data_dir}data.csv')
+data = read_file(f'{data_dir}datav2.csv')
 test_data = read_file(f'{data_dir}test_data.json')
 
 # Create DataFrame
