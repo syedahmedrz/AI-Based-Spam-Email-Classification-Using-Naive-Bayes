@@ -39,7 +39,6 @@ y_pred = model.predict(X_test)
 
 # Evaluate the model
 accuracy = accuracy_score(y_test, y_pred)
-print(f'Accuracy: {accuracy:.2f}')
 
 def classify_new_email(new_email):
     """Classifies a new email as 'spam' or 'not spam'."""
@@ -47,12 +46,5 @@ def classify_new_email(new_email):
     prediction = model.predict(new_email_vectorized)
     return prediction[0]
 
-# Test with a new email subject
-new_email = "Important information about your account"
-result = classify_new_email(new_email)
-print(f'The new email is classified as: {result}')
-
-# Test a bunch of subjects
-for subject in test_data:
-    test_subject = classify_new_email(subject)
-    print(f'The new email is classified as: {test_subject}')
+if __name__ == "__main__":
+    print(f'Accuracy: {accuracy:.2f}')
