@@ -26,13 +26,15 @@ def read_file(file_path):
         print(f"Error while reading file: {e}")
         raise
 
-# data folder path
+# data folder & files path
 data_dir = './data/'
+data_path = f'{data_dir}datav2.csv'
+test_data_path = f'{data_dir}test_data.json'
 
 # Load data
 # data = read_file(f'{data_dir}data.json')
-data = read_file(f'{data_dir}datav2.csv')
-test_data = read_file(f'{data_dir}test_data.json')
+data = read_file(data_path)
+test_data = read_file(test_data_path)
 
 # Create DataFrame
 # df = pd.DataFrame(data) # no need if using directly csv pd.read_csv
