@@ -12,9 +12,12 @@ def read_file(file_path):
         data = json.load(file)
     return data
 
+# data folder path
+data_dir = './data/'
+
 # Load data
-data = read_file('data.json')
-test_data = read_file('test_data.json')
+data = read_file(f'{data_dir}data.json')
+test_data = read_file(f'{data_dir}test_data.json')
 
 # Create DataFrame
 df = pd.DataFrame(data)
