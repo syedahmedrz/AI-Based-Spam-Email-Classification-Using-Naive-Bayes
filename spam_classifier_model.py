@@ -7,20 +7,36 @@ from sklearn.metrics import accuracy_score
 import json
 
 def read_file(file_path):
-    """Reads a JSON file and returns the data."""
-    with open(file_path) as file:
-        data = json.load(file)
-    return data
+
+    """Reads a file (CSV or JSON) and returns the data as a DataFrame."""
+    try:
+        # Check file extension and read accordingly
+        if file_path.endswith('.csv'):
+            return pd.read_csv(file_path)
+        
+        elif file_path.endswith('.json'):
+            with open(file_path) as file:
+                data = json.load(file)
+                return data
+        
+        else:
+            raise ValueError("Unsupported file format") 
+        
+    except Exception as e:
+        print(f"Error while reading file: {e}")
+        raise
 
 # data folder path
 data_dir = './data/'
 
 # Load data
-data = read_file(f'{data_dir}data.json')
+# data = read_file(f'{data_dir}data.json')
+data = read_file(f'{data_dir}data.csv')
 test_data = read_file(f'{data_dir}test_data.json')
 
 # Create DataFrame
-df = pd.DataFrame(data)
+# df = pd.DataFrame(data) # no need if using directly csv pd.read_csv
+df = data
 
 # Prepare the data
 X = df['email']
