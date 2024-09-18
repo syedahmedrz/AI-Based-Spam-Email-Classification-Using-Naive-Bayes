@@ -28,8 +28,8 @@ def read_file(file_path):
 
 # data folder & files path
 data_dir = './data/'
-data_path = f'{data_dir}datav2.csv'
-test_data_path = f'{data_dir}test_data.json'
+data_path = f'{data_dir}train_data/datav2.csv'
+test_data_path = f'{data_dir}test_data/test_data.json'
 
 # Load data
 # data = read_file(f'{data_dir}data.json')
