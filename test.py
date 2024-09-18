@@ -9,4 +9,4 @@ print(f'The new email is classified as: {result}')
 # Test a bunch of subjects
 for subject in SCM.test_data:
     test_subject = SCM.classify_new_email(subject)
-    print(f'The new email is classified as: {test_subject}')
+    print(f'The email \'{subject}\' is classified as: {test_subject}')
