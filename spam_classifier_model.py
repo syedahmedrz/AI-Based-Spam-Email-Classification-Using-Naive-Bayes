@@ -5,6 +5,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
 import json
+import os
+import joblib
 
 def read_file(file_path):
 
@@ -30,6 +32,7 @@ def read_file(file_path):
 data_dir = './data/'
 data_path = f'{data_dir}train_data/datav2.csv'
 test_data_path = f'{data_dir}test_data/test_data.json'
+model_path = './models/spam_classifier_model.pkl'
 
 # Load data
 # data = read_file(f'{data_dir}data.json')
@@ -51,9 +54,18 @@ X_vectorized = vectorizer.fit_transform(X)
 # Split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X_vectorized, Y, test_size=0.25, random_state=42)
 
-# Train the model
-model = MultinomialNB()
-model.fit(X_train, y_train)
+force_retrain = False # Set this to True if you have updated the CSV file and want to retrain the model
+
+# Check if the model exists
+if force_retrain or not os.path.exists(model_path):
+    # Train the model and save it for future use
+    model = MultinomialNB()
+    model.fit(X_train, y_train)
+    joblib.dump(model, model_path)
+    print("Model trained and saved to file.")
+else:
+    model = joblib.load(model_path)
+    print("Model loaded from file.")
 
 # Make predictions
 y_pred = model.predict(X_test)

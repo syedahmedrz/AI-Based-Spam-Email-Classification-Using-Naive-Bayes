@@ -4,7 +4,7 @@ import spam_classifier_model as SCM
 # Test with a new email subject
 new_email = "Important information about your account"
 result = SCM.classify_new_email(new_email)
-print(f'The new email is classified as: {result}')
+# print(f'The new email is classified as: {result}')
 
 # Test a bunch of subjects
 for subject in SCM.test_data:
