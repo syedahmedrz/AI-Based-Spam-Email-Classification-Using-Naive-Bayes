@@ -33,6 +33,7 @@ data_dir = './data/'
 data_path = f'{data_dir}train_data/datav2.csv'
 test_data_path = f'{data_dir}test_data/test_data.json'
 model_path = './models/spam_classifier_model.pkl'
+vectorizer_path = './models/vectorizer.pkl'
 
 # Load data
 # data = read_file(f'{data_dir}data.json')
@@ -62,6 +63,7 @@ if force_retrain or not os.path.exists(model_path):
     model = MultinomialNB()
     model.fit(X_train, y_train)
     joblib.dump(model, model_path)
+    joblib.dump(vectorizer, vectorizer_path)  # Save the vectorizer
     print("Model trained and saved to file.")
 else:
     model = joblib.load(model_path)

@@ -1,0 +1,5 @@
+fastapi
+"fastapi[standard]"
+uvicorn
+scikit-learn
+joblib
