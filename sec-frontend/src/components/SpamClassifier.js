@@ -76,20 +76,22 @@ const SpamClassifier = () => {
         </button>
         {prediction && (
           <div className="mt-6 text-center">
-            <div
-              className={`p-4 rounded-lg ${
-                prediction === "spam"
-                  ? "bg-red-900 text-red-400"
-                  : "bg-green-900 text-green-400"
-              }`}
-            >
-              <p className="text-lg font-medium">
-                {prediction === "spam"
-                  ? "🚨 This email is spam!"
-                  : "✅ This email is not spam."}
-              </p>
+          {prediction === "spam" && (
+            <div className="p-4 rounded-lg bg-red-900 text-red-400">
+              <p className="text-lg font-medium">🚨 This email is spam!</p>
             </div>
-          </div>
+          )}
+          {prediction === "not spam" && (
+            <div className="p-4 rounded-lg bg-green-900 text-green-400">
+              <p className="text-lg font-medium">✅ This email is not spam.</p>
+            </div>
+          )}
+          {prediction === "Error occurred" && (
+            <div className="p-4 rounded-lg bg-gray-800 text-gray-400">
+              <p className="text-lg font-medium">⚠️ An error occurred. Please try again.</p>
+            </div>
+          )}
+        </div>
         )}
       </div>
     </div>
