@@ -1,11 +1,25 @@
 from typing import Union
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import joblib  # For loading the saved model
 import os
 
 # Initialize the FastAPI app
 app = FastAPI()
+
+# Configure CORS
+orig_origins = [
+    "http://localhost:3000",  # React app URL
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=orig_origins,  # Allows all origins specified above
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
 
 # Load the saved model
 model_path = os.path.join(os.path.dirname(__file__), "saved_model/spam_classifier_model.pkl")
