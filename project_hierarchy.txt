@@ -1,0 +1,115 @@
+1. Model Type: Naive Bayes
+Naive Bayes is a probabilistic classification algorithm based on Bayes' Theorem. It assumes that the features (words in the email) are independent of each other given the class (spam or not spam), which is why it's called "Naive." It's highly suitable for text classification tasks like spam detection.
+
+2. Type of Naive Bayes Model:
+There are different variations of the Naive Bayes classifier, but in your case, you're likely using the Multinomial Naive Bayes, which is specifically designed for text classification.
+
+Multinomial Naive Bayes: This model is best suited for discrete data, such as word counts or term frequencies. Since emails are text-based, the model uses the frequency of words to determine whether an email is spam or not.
+3. Classification Hierarchy:
+3.1. Machine Learning Domain:
+Category: Supervised Learning (You are training the model with labeled data, i.e., emails labeled as spam or not spam)
+Problem Type: Classification (The goal is to assign an email into one of two classes—spam or not spam)
+3.2. Naive Bayes Algorithm:
+Type: Probabilistic Classifier
+Approach: Based on Bayes' Theorem with the assumption of independence between predictors (features)
+Formula:
+
+𝑃
+(
+𝐶
+∣
+𝑋
+)
+=
+𝑃
+(
+𝑋
+∣
+𝐶
+)
+⋅
+𝑃
+(
+𝐶
+)
+𝑃
+(
+𝑋
+)
+P(C∣X)= 
+P(X)
+P(X∣C)⋅P(C)
+​
+ 
+Where:
+
+𝑃
+(
+𝐶
+∣
+𝑋
+)
+P(C∣X): Probability of class 
+𝐶
+C (spam or not spam) given features 
+𝑋
+X (words in the email)
+𝑃
+(
+𝑋
+∣
+𝐶
+)
+P(X∣C): Probability of features 
+𝑋
+X given class 
+𝐶
+C
+𝑃
+(
+𝐶
+)
+P(C): Prior probability of class 
+𝐶
+C (spam or not spam)
+𝑃
+(
+𝑋
+)
+P(X): Probability of features 
+𝑋
+X (in this case, words in the email)
+3.3. Text Processing for Classification:
+The model works on preprocessed text data:
+
+Feature Extraction: Extract words (features) from the email text
+Tokenization: Break the text into words (tokens)
+Vectorization: Convert these words into numerical features (e.g., using TF-IDF or word counts)
+Training Data: A labeled dataset with emails categorized as spam or not spam
+3.4. Classes (Output):
+Class 1: Spam
+Class 2: Not Spam
+4. Project Hierarchy:
+Data Collection:
+
+Collect a dataset of emails with labels (spam or not spam)
+Preprocess the text (cleaning, tokenization, vectorization)
+Feature Extraction:
+
+Bag of Words (BoW) or TF-IDF to convert the text into a matrix of features (words)
+Model Training:
+
+Use the Multinomial Naive Bayes classifier
+Train the model using the labeled dataset (email data with "spam" and "not spam" labels)
+Testing & Evaluation:
+
+Test the model using a test set
+Measure accuracy, precision, recall, and F1-score to evaluate performance
+Prediction/Classification:
+
+The user inputs an email subject or text
+The model processes the input and classifies it as spam or not spam
+API Integration (Frontend & Backend):
+
+The frontend in React.js allows users to input email subjects
+The backend API (FastAPI/Flask/Django) serves the machine learning model, taking the email subject as input and returning the classification result (spam or not spam)
